@@ -1,51 +1,51 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/slides.html</loc>
-    <lastmod>2023-10-25T21:11:17.521Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/slide-rladies.html</loc>
-    <lastmod>2023-10-25T21:11:16.721Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/slide-intro-r-parte-ii.html</loc>
-    <lastmod>2023-10-25T21:11:15.869Z</lastmod>
+    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/apoio.html</loc>
+    <lastmod>2023-10-25T21:25:49.559Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/perguntas-frequentes.html</loc>
-    <lastmod>2023-10-25T21:11:14.645Z</lastmod>
+    <lastmod>2023-10-25T21:25:48.751Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/slide-intro-r-parte-i.html</loc>
-    <lastmod>2023-10-25T21:11:11.857Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/alimentacao.html</loc>
-    <lastmod>2023-10-25T21:11:09.781Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/mensagens.html</loc>
-    <lastmod>2023-10-25T21:11:07.369Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/como-chegar.html</loc>
-    <lastmod>2023-10-25T21:11:10.161Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/slide-intro-tidyverse.html</loc>
-    <lastmod>2023-10-25T21:11:13.977Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/apoio.html</loc>
-    <lastmod>2023-10-25T21:11:14.953Z</lastmod>
-  </url>
-  <url>
-    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/mensagem-auxilios.html</loc>
-    <lastmod>2023-10-25T21:11:16.193Z</lastmod>
+    <lastmod>2023-10-25T21:25:47.919Z</lastmod>
   </url>
   <url>
     <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/index.html</loc>
-    <lastmod>2023-10-25T21:11:17.125Z</lastmod>
+    <lastmod>2023-10-25T21:25:46.571Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/alimentacao.html</loc>
+    <lastmod>2023-10-25T21:25:44.951Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/slides.html</loc>
+    <lastmod>2023-10-25T21:25:39.898Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/mensagem-auxilios.html</loc>
+    <lastmod>2023-10-25T21:25:39.014Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/slide-intro-tidyverse.html</loc>
+    <lastmod>2023-10-25T21:25:43.470Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/slide-intro-r-parte-ii.html</loc>
+    <lastmod>2023-10-25T21:25:46.115Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/slide-rladies.html</loc>
+    <lastmod>2023-10-25T21:25:47.203Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/mensagens.html</loc>
+    <lastmod>2023-10-25T21:25:48.355Z</lastmod>
+  </url>
+  <url>
+    <loc>https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/como-chegar.html</loc>
+    <lastmod>2023-10-25T21:25:49.143Z</lastmod>
   </url>
 </urlset>
