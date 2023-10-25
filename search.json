@@ -1,0 +1,716 @@
+[
+  {
+    "objectID": "slide-intro-tidyverse.html#tidyverse",
+    "href": "slide-intro-tidyverse.html#tidyverse",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Tidyverse",
+    "text": "Tidyverse"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#o-que-é",
+    "href": "slide-intro-tidyverse.html#o-que-é",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "O que é?",
+    "text": "O que é?\n\nUm conjunto de pacotes que compartilham a mesma gramática e estrutura.\nQuando você instala/carrega o tidyverse, todos esses pacotes vêm junto de uma vez.\nServe pra fazer o trabalho de análise mais rápido e fácil"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#pacotes-dentro-do-tidyverse",
+    "href": "slide-intro-tidyverse.html#pacotes-dentro-do-tidyverse",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Pacotes dentro do Tidyverse",
+    "text": "Pacotes dentro do Tidyverse\nSão vários os pacotes (https://www.tidyverse.org/packages/)\nConseguem imaginar a utilidade dos pacotes abaixo?\n\nreadr: abrir arquivos (bases de dados) e salvar tabelas\ndplyr: manipular a base (filtrar, criar colunas, agrupar, resumir, ordenar etc.)\nstringr: arrumar textos (string) identifcando padrões (regex)\nlubridate: ajusta datas e horas (ex: AAAA-MM-DD)\nggplot2: visualização de dados\ntidyr: para organizar/arrumar os dados"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#verbos-mágicos-do-dplyr",
+    "href": "slide-intro-tidyverse.html#verbos-mágicos-do-dplyr",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "‘Verbos mágicos’ do dplyr",
+    "text": "‘Verbos mágicos’ do dplyr\nSaber poucos comandos já basta pra começar a analisar!\n\n\n\nFUNÇÃO\nO QUE FAZ\n\n\n\n\nselect\nseleciona só algumas colunas da base\n\n\nfilter\nseleciona só algumas linhas da base\n\n\nmutate\ncria colunas ou altera valores de uma coluna\n\n\ngroup_by\nagrupa linhas de valores iguais em uma coluna\n\n\nsummarise\npar do group_by, cria o resumo desses grupos\n\n\narrange\nordena a forma de visualizar a tabela"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#mais-verbos-úteis",
+    "href": "slide-intro-tidyverse.html#mais-verbos-úteis",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Mais ‘verbos úteis’",
+    "text": "Mais ‘verbos úteis’\n\n\n\nFUNÇÃO\nO QUE FAZ\n\n\n\n\nread_csv\nabre o seu arquivo separado por vírgula\n\n\nread_csv2\narquivo separado por ponto e vírgula\n\n\nwrite_csv\nsalva a tabela num arquivo no computador\n\n\nrename\nrenomeia uma coluna\n\n\nreplace_*\ntroca um valor p/ outro quando ele aparece\n\n\npivot_*\ntransforma linhas em colunas e vice-versa\n\n\nbind_rows*\njunta as linhas de duas tabelas diferentes\n\n\nstr_sub*\npuxa só parte do valor de uma coluna"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#o-operador-pipe-ou",
+    "href": "slide-intro-tidyverse.html#o-operador-pipe-ou",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "O operador pipe: %>% ou |>",
+    "text": "O operador pipe: %&gt;% ou |&gt;\n\npipe = cano, encanamento, fazer a informação fluir\no valor do lado esquerdo do pipe vira argumento para a função do lado direito e assim por diante\nAtalho: CTRL + SHIFT + M"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#exercícios",
+    "href": "slide-intro-tidyverse.html#exercícios",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Exercícios",
+    "text": "Exercícios\nVamos aprender a conjugar na prática com dados da nova Assembleia Legislativa de São Paulo!\nObservem a tabela abaixo. Cada grupo terá uma pergunta para responder!\n\ntabela alesp.csv"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#perguntas",
+    "href": "slide-intro-tidyverse.html#perguntas",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Perguntas:",
+    "text": "Perguntas:\n\nQuais mulheres foram eleitas em 2022?\nQual foi a média de votos em 2022 por raça?\nQual é o ranking de votos totais por partido em 2022?\nQual pessoa reeleita ganhou mais votos de 2018 para 2022?"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#código-1",
+    "href": "slide-intro-tidyverse.html#código-1",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Código 1:",
+    "text": "Código 1:\n1- Quais mulheres foram eleitas em 2022?\n\n(Dica: é com “select” ou com “filter”?)\n\nlibrary(tidyverse)\n\nalesp &lt;- read.csv2(\"data/alesp.csv\",\n                   fileEncoding = \"Windows-1252\")\n\nsexo_feminino &lt;- alesp %&gt;% \n  filter(genero == \"FEMININO\")"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#resposta-1",
+    "href": "slide-intro-tidyverse.html#resposta-1",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Resposta 1:",
+    "text": "Resposta 1:\n1- Quais mulheres foram eleitas em 2022?\n\n\n\n\n\nranking\nnome_urna_candidato\nsigla_partido\nvotos_2022\nvotos_2018\ngenero\ngrau_instrucao\ncor_raca\nocupacao\n\n\n\n\n3\nPAULA DA BANCADA FEMINISTA\nPSOL\n259771\nNA\nFEMININO\nSUPERIOR COMPLETO\nPRETA\nADVOGADO\n\n\n10\nANA CAROLINA SERRA\nCID\n198698\nNA\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nADVOGADO\n\n\n13\nBRUNA FURLAN\nPSDB\n195436\nNA\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n18\nCARLA MORANDO\nPSDB\n177773\n89636\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nEMPRESÁRIO\n\n\n20\nEDIANE MARIA\nPSOL\n175617\nNA\nFEMININO\nLÊ E ESCREVE\nPRETA\nEMPREGADO DOMÉSTICO\n\n\n21\nMARTA COSTA\nPSD\n170541\n117156\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nSERVIDOR PÚBLICO ESTADUAL\n\n\n23\nPROFESSORA BEBEL\nPT\n155983\n87169\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n30\nVALERIA BOLSONARO\nPL\n131557\n54519\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n39\nMARCIA LIA\nPT\n108587\n63751\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n41\nMONICA DO MOVIMENTO PRETAS\nPSOL\n106781\n149844\nFEMININO\nSUPERIOR COMPLETO\nPRETA\nJORNALISTA E REDATOR\n\n\n50\nTHAINARA FARIA\nPT\n91388\nNA\nFEMININO\nSUPERIOR COMPLETO\nPRETA\nVEREADOR\n\n\n53\nLECI BRANDÃO\nPCdoB\n90496\n64487\nFEMININO\nENSINO MÉDIO COMPLETO\nPRETA\nCANTOR E COMPOSITOR\n\n\n55\nANALICE FERNANDES\nPSDB\n90135\n110089\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nENFERMEIRO\n\n\n56\nANDRÉA WERNER\nPSB\n88820\nNA\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nJORNALISTA E REDATOR\n\n\n60\nMARINA HELOU\nREDE\n85517\n39839\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n63\nEDNA MACEDO\nREP\n82932\n84144\nFEMININO\nENSINO MÉDIO COMPLETO\nBRANCA\nDEPUTADO\n\n\n67\nSOLANGE FREITAS\nUNIÃO\n81870\nNA\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nJORNALISTA E REDATOR\n\n\n69\nDANI ALONSO\nPL\n80337\nNA\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nEMPRESÁRIO\n\n\n70\nANA PERUGINI\nPT\n79061\nNA\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nSERVENTUÁRIO DE JUSTIÇA\n\n\n79\nDELEGADA GRACIELA\nPL\n68955\n63089\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n80\nLETÍCIA AGUIAR\nPP\n68556\n60909\nFEMININO\nSUPERIOR INCOMPLETO\nBRANCA\nOUTROS\n\n\n81\nMARIA LUCIA AMARY\nPSDB\n66956\n70743\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n82\nFABIANA B.\nPL\n65497\nNA\nFEMININO\nSUPERIOR COMPLETO\nPARDA\nEMPRESÁRIO\n\n\n83\nBETH SAHÃO\nPT\n65407\n54900\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nOUTROS\n\n\n87\nCLARICE GANEM\nPODE\n59342\nNA\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nADMINISTRADOR"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#código-2",
+    "href": "slide-intro-tidyverse.html#código-2",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Código 2:",
+    "text": "Código 2:\n2- Qual foi a média de votos em 2022 por raça?\n\nmedia_raca &lt;- alesp %&gt;% \n  group_by(cor_raca) %&gt;% \n  summarise(media_votos = mean(votos_2022))"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#resposta-2",
+    "href": "slide-intro-tidyverse.html#resposta-2",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Resposta 2:",
+    "text": "Resposta 2:\n2- Qual foi a média de votos em 2022 por raça?\n\n\n\n\n\ncor_raca\nmedia_votos\n\n\n\n\nBRANCA\n125135.7\n\n\nPARDA\n105330.0\n\n\nPRETA\n129313.1"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#código-3",
+    "href": "slide-intro-tidyverse.html#código-3",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Código 3:",
+    "text": "Código 3:\n3- Qual é o ranking de votos totais por partido em 2022?\n\nvotos_partidos &lt;- alesp %&gt;% \n  group_by(sigla_partido) %&gt;% \n  summarise(total_votos = sum(votos_2022)) %&gt;% \n  arrange(desc(total_votos))"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#resposta-3",
+    "href": "slide-intro-tidyverse.html#resposta-3",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Resposta 3:",
+    "text": "Resposta 3:\n3- Qual é o ranking de votos totais por partido em 2022?\n\n\n\n\n\nsigla_partido\ntotal_votos\n\n\n\n\nPL\n2659415\n\n\nPT\n2572961\n\n\nPSDB\n1063131\n\n\nREP\n929898\n\n\nUNIÃO\n891227\n\n\nPSOL\n864074\n\n\nPSD\n488167\n\n\nMDB\n424436\n\n\nPP\n353342\n\n\nPODE\n320828\n\n\nCID\n275608\n\n\nPSB\n244817\n\n\nPSC\n123592\n\n\nNOVO\n90688\n\n\nPCdoB\n90496\n\n\nREDE\n85517\n\n\nPDT\n85195\n\n\nSD\n58707"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#código-4",
+    "href": "slide-intro-tidyverse.html#código-4",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Código 4:",
+    "text": "Código 4:\n4- Qual deputado reeleito ganhou mais votos de 2018 para 2022?\n\ndeputados &lt;- alesp %&gt;% \n  filter(!is.na(votos_2018)) %&gt;% \n  mutate(variacao_votos = votos_2022 - votos_2018,\n         pct_variacao_votos = ( variacao_votos * 100 ) / votos_2018) %&gt;% \n  arrange(desc(pct_variacao_votos))"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#resposta-4",
+    "href": "slide-intro-tidyverse.html#resposta-4",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Resposta 4:",
+    "text": "Resposta 4:\n4- Qual deputado reeleito ganhou mais votos de 2018 para 2022?\n\n\n\n\n\nranking\nnome_urna_candidato\nsigla_partido\nvotos_2022\nvotos_2018\ngenero\ngrau_instrucao\ncor_raca\nocupacao\nvariacao_votos\npct_variacao_votos\n\n\n\n\n8\nTENENTE COIMBRA\nPL\n209705\n24109\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n185596\n769.8203990\n\n\n48\nAGENTE FEDERAL DANILO BALAS\nPL\n94552\n38661\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n55891\n144.5668762\n\n\n30\nVALERIA BOLSONARO\nPL\n131557\n54519\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n77038\n141.3048662\n\n\n22\nEMÍDIO DE SOUZA\nPT\n157834\n65898\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n91936\n139.5125800\n\n\n16\nMARCOS DAMASIO\nPL\n183219\n81695\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n101524\n124.2719873\n\n\n61\nMARCIO NAKASHIMA\nPDT\n85195\n38081\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n47114\n123.7204905\n\n\n15\nITAMAR BORGES\nMDB\n183480\n82185\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n101295\n123.2524183\n\n\n60\nMARINA HELOU\nREDE\n85517\n39839\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n45678\n114.6564924\n\n\n18\nCARLA MORANDO\nPSDB\n177773\n89636\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nEMPRESÁRIO\n88137\n98.3276808\n\n\n34\nVINICIUS CAMARINHA\nPSDB\n123316\n65441\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nADVOGADO\n57875\n88.4384407\n\n\n11\nMILTON LEITE FILHO\nUNIÃO\n198429\n105492\nMASCULINO\nENSINO MÉDIO COMPLETO\nPARDA\nDEPUTADO\n92937\n88.0986236\n\n\n23\nPROFESSORA BEBEL\nPT\n155983\n87169\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n68814\n78.9432023\n\n\n7\nANDRÉ DO PRADO\nPL\n216268\n123313\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n92955\n75.3813467\n\n\n5\nMAJOR MECCA\nPL\n224462\n131531\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n92931\n70.6533061\n\n\n39\nMARCIA LIA\nPT\n108587\n63751\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n44836\n70.3298772\n\n\n33\nTHIAGO AURICCHIO\nPL\n123483\n73435\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n50048\n68.1527882\n\n\n27\nLUIZ FERNANDO\nPT\n141017\n85271\nMASCULINO\nSUPERIOR INCOMPLETO\nBRANCA\nEMPRESÁRIO\n55746\n65.3750982\n\n\n14\nCAPITÃO CONTE LOPES\nPL\n192454\n116806\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n75648\n64.7637964\n\n\n26\nENIO TATTO\nPT\n142785\n86744\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n56041\n64.6050447\n\n\n36\nRAFAEL SILVA\nPSD\n118182\n71992\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n46190\n64.1599067\n\n\n28\nROGÉRIO NOGUEIRA\nPSDB\n139756\n89040\nMASCULINO\nENSINO MÉDIO COMPLETO\nBRANCA\nEMPRESÁRIO\n50716\n56.9586703\n\n\n17\nCARLOS CEZAR\nPL\n180690\n115566\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n65124\n56.3522143\n\n\n21\nMARTA COSTA\nPSD\n170541\n117156\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nSERVIDOR PÚBLICO ESTADUAL\n53385\n45.5674485\n\n\n42\nCARLÃO PIGNATARI\nPSDB\n105245\n74006\nMASCULINO\nENSINO MÉDIO COMPLETO\nBRANCA\nEMPRESÁRIO\n31239\n42.2114423\n\n\n53\nLECI BRANDÃO\nPCdoB\n90496\n64487\nFEMININO\nENSINO MÉDIO COMPLETO\nPRETA\nCANTOR E COMPOSITOR\n26009\n40.3321600\n\n\n44\nSEBASTIÃO SANTOS\nREP\n104374\n75280\nMASCULINO\nSUPERIOR COMPLETO\nPARDA\nDEPUTADO\n29094\n38.6477152\n\n\n37\nPAULO FIORILO\nPT\n110251\n80430\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n29821\n37.0769613\n\n\n85\nPAULO CORRÊA JR\nPSD\n62239\n46438\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nJORNALISTA E REDATOR\n15801\n34.0260132\n\n\n66\nDR. JORGE DO CARMO\nPT\n82054\n61751\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n20303\n32.8788198\n\n\n2\nCARLOS GIANNAZI\nPSOL\n276811\n218705\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n58106\n26.5682083\n\n\n9\nDELEGADO OLIM\nPP\n201348\n161569\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n39779\n24.6204408\n\n\n71\nMAURO BRAGATO\nPSDB\n78142\n65475\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n12667\n19.3463154\n\n\n83\nBETH SAHÃO\nPT\n65407\n54900\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nOUTROS\n10507\n19.1384335\n\n\n40\nBARBA\nPT\n108071\n91394\nMASCULINO\nSUPERIOR INCOMPLETO\nPRETA\nDEPUTADO\n16677\n18.2473685\n\n\n52\nRICARDO MADALENA\nPL\n90630\n77554\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n13076\n16.8605101\n\n\n47\nGILMACI SANTOS\nREP\n96361\n82678\nMASCULINO\nSUPERIOR INCOMPLETO\nPARDA\nDEPUTADO\n13683\n16.5497472\n\n\n45\nALTAIR MORAES\nREP\n98515\n86230\nMASCULINO\nSUPERIOR COMPLETO\nPARDA\nDEPUTADO\n12285\n14.2467819\n\n\n80\nLETÍCIA AGUIAR\nPP\n68556\n60909\nFEMININO\nSUPERIOR INCOMPLETO\nBRANCA\nOUTROS\n7647\n12.5547949\n\n\n79\nDELEGADA GRACIELA\nPL\n68955\n63089\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n5866\n9.2979759\n\n\n65\nLEO OLIVEIRA\nMDB\n82145\n76703\nMASCULINO\nSUPERIOR INCOMPLETO\nBRANCA\nEMPRESÁRIO\n5442\n7.0948985\n\n\n19\nJORGE WILSON XERIFE CONSUMIDOR\nREP\n177614\n177414\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nJORNALISTA E REDATOR\n200\n0.1127307\n\n\n75\nRODRIGO MORAES\nPL\n75094\n75845\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n-751\n-0.9901773\n\n\n58\nBARROS MUNHOZ\nPSDB\n86372\n87494\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n-1122\n-1.2823736\n\n\n63\nEDNA MACEDO\nREP\n82932\n84144\nFEMININO\nENSINO MÉDIO COMPLETO\nBRANCA\nDEPUTADO\n-1212\n-1.4403879\n\n\n64\nCARUSO\nMDB\n82209\n83758\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n-1549\n-1.8493756\n\n\n73\nRAFA ZIMBALDI\nCID\n76910\n80789\nMASCULINO\nSUPERIOR INCOMPLETO\nBRANCA\nEMPRESÁRIO\n-3879\n-4.8013962\n\n\n32\nEDMIR CHEDID\nUNIÃO\n129097\n135991\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n-6894\n-5.0694531\n\n\n81\nMARIA LUCIA AMARY\nPSDB\n66956\n70743\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n-3787\n-5.3531798\n\n\n12\nGIL DINIZ\nPL\n196215\n214037\nMASCULINO\nSUPERIOR INCOMPLETO\nBRANCA\nDEPUTADO\n-17822\n-8.3265977\n\n\n68\nDANIEL SOARES\nUNIÃO\n81753\n97330\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nADVOGADO\n-15577\n-16.0043152\n\n\n55\nANALICE FERNANDES\nPSDB\n90135\n110089\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nENFERMEIRO\n-19954\n-18.1253350\n\n\n41\nMONICA DO MOVIMENTO PRETAS\nPSOL\n106781\n149844\nFEMININO\nSUPERIOR COMPLETO\nPRETA\nJORNALISTA E REDATOR\n-43063\n-28.7385548\n\n\n43\nCAIO FRANÇA\nPSB\n105173\n162166\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nADVOGADO\n-56993\n-35.1448516\n\n\n77\nALEX DE MADUREIRA\nPL\n74340\n118294\nMASCULINO\nSUPERIOR INCOMPLETO\nPARDA\nDEPUTADO\n-43954\n-37.1565760"
+  },
+  {
+    "objectID": "slide-intro-tidyverse.html#hora-de-praticar",
+    "href": "slide-intro-tidyverse.html#hora-de-praticar",
+    "title": "Parte II - Introdução ao tidyverse",
+    "section": "Hora de praticar!",
+    "text": "Hora de praticar!\nVamos abrir o arquivo tidyverse-pratica.R para analisar dados sobre a eleição de policiais e militares no Legislativo.\nO objetivo vai ser atualizar essa reportagem do G1 com os dados das eleições de 2022!\n\n\n\nSlides feitos com Quarto e Quarto R-Ladies Theme."
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#você-deveria-estar-aqui-hoje",
+    "href": "slide-intro-r-parte-i.html#você-deveria-estar-aqui-hoje",
+    "title": "Introdução ao R - Parte I",
+    "section": "Você deveria estar aqui hoje?",
+    "text": "Você deveria estar aqui hoje?\nVocê se enquadra em uma das situações abaixo?\n\nNão sei nada sobre R, mas sei outras linguagens\nNão conheço nada de nenhuma linguagem de programação\nJá tentei aprender R no passado, mas esqueci tudo\nSei só um básico de Excel\nNunca mexi no Excel\nAcho que sou “de humanas demais” pra saber programar\nSempre fiquei de recuperação em matemática no colégio\nQuero sempre aprender coisas novas"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#então-a-resposta-é-sim",
+    "href": "slide-intro-r-parte-i.html#então-a-resposta-é-sim",
+    "title": "Introdução ao R - Parte I",
+    "section": "Então a resposta é SIM!",
+    "text": "Então a resposta é SIM!\n\nVamos nessa!"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#o-que-é-o",
+    "href": "slide-intro-r-parte-i.html#o-que-é-o",
+    "title": "Introdução ao R - Parte I",
+    "section": "O que é o …",
+    "text": "O que é o …\nR?\nR é um ambiente de software livre para computação estatística e gráficos. (https://www.r-project.org/)\nRStudio?\nRStudio é uma IDE (integrated development environment) da Linguagem R, ou seja, um ambiente de desenvolvimento que utilizamos para editar e executar os códigos em R.\nRStudio Cloud?\nÉ a IDE RStudio que podemos utilizar diretamente do navegador (sem que seja necessário instalar nada)."
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#pré-requisitos",
+    "href": "slide-intro-r-parte-i.html#pré-requisitos",
+    "title": "Introdução ao R - Parte I",
+    "section": "Pré-requisitos",
+    "text": "Pré-requisitos\nNesta oficina:\n\nRStudio Cloud\n\nPara usar no dia-a-dia:\n\nR e RStudio instalados no seu computador:\nLinks para instalação:\n\nR\nRStudio"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#por-quê-usar-linguagens-de-programação-para-analisar-dados",
+    "href": "slide-intro-r-parte-i.html#por-quê-usar-linguagens-de-programação-para-analisar-dados",
+    "title": "Introdução ao R - Parte I",
+    "section": "Por quê usar linguagens de programação para analisar dados?",
+    "text": "Por quê usar linguagens de programação para analisar dados?"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#as-vantagens-de-analisar-dados-usando-linguagens-de-programação",
+    "href": "slide-intro-r-parte-i.html#as-vantagens-de-analisar-dados-usando-linguagens-de-programação",
+    "title": "Introdução ao R - Parte I",
+    "section": "As vantagens de analisar dados usando linguagens de programação",
+    "text": "As vantagens de analisar dados usando linguagens de programação\n\nO código é uma linguagem, então podemos documentar a nossa análise\nO código é texto, então podemos copiar e colar\nAs principais linguagens de programação para ciência de dados são de código aberto\n\n\nSlide por Curso-R."
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#o-que-significa-ser-código-aberto",
+    "href": "slide-intro-r-parte-i.html#o-que-significa-ser-código-aberto",
+    "title": "Introdução ao R - Parte I",
+    "section": "O que significa ser código aberto?",
+    "text": "O que significa ser código aberto?\n\nAcesso gratuito.\nTodas as pessoas podem usar as melhores ferramentas independentemente do poder financeiro.\nEstudantes podem usar as mesmas ferramentas que profissionais.\nVocê pode corrigir problemas e aprimorar a linguagem.\nVocê pode desenvolver suas próprias ferramentas.\nPossibilita a existência de uma comunidade ativa.\n\n\nSlide por Curso-R."
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#por-quê-o-r",
+    "href": "slide-intro-r-parte-i.html#por-quê-o-r",
+    "title": "Introdução ao R - Parte I",
+    "section": "Por quê o R?",
+    "text": "Por quê o R?"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#o-ciclo-da-ciência-de-dados",
+    "href": "slide-intro-r-parte-i.html#o-ciclo-da-ciência-de-dados",
+    "title": "Introdução ao R - Parte I",
+    "section": "O ciclo da ciência de dados",
+    "text": "O ciclo da ciência de dados\n\n\nSlide por Curso-R."
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#o-ciclo-da-ciência-de-dados-com-o-r",
+    "href": "slide-intro-r-parte-i.html#o-ciclo-da-ciência-de-dados-com-o-r",
+    "title": "Introdução ao R - Parte I",
+    "section": "O ciclo da ciência de dados com o R",
+    "text": "O ciclo da ciência de dados com o R\n\n\nSlide por Curso-R."
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#por-quê-usar-o-r",
+    "href": "slide-intro-r-parte-i.html#por-quê-usar-o-r",
+    "title": "Introdução ao R - Parte I",
+    "section": "Por quê usar o R?",
+    "text": "Por quê usar o R?\n\nÉ uma linguagem de programação que possui muitas ferramentas para análise de dados\nÉ código aberto (open source)\nPossui uma comunidade ativa de pessoas desenvolvedoras\nÉ flexível, permite desenvolver funções e pacotes para facilitar o trabalho\nEstá disponível, gratuitamente, em diferentes plataformas: Windows, Linux e Mac\nMantido pela R Development Core Team"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#e-o-excel",
+    "href": "slide-intro-r-parte-i.html#e-o-excel",
+    "title": "Introdução ao R - Parte I",
+    "section": "E o Excel?",
+    "text": "E o Excel?\nResposta: nem todas as bases abrem no Excel"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#os-limites-do-excel",
+    "href": "slide-intro-r-parte-i.html#os-limites-do-excel",
+    "title": "Introdução ao R - Parte I",
+    "section": "Os limites do Excel",
+    "text": "Os limites do Excel\nLimite do Excel: 1.048.576 linhas e 16.384 colunas   Para efeito de comparação…\n\nBase de SRAG do Sivep-Gripe só do ano de 2021 (atualizado até fev/2022): 1.715.835 linhas\nBase do Enem 2018: 5,5 milhões de linhas (uma linha por pessoa inscrita)\nBase de beneficiários do Auxílio Emergencial: 40 milhões de linhas novas a cada mês"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#as-bases-de-dados-e-o-r",
+    "href": "slide-intro-r-parte-i.html#as-bases-de-dados-e-o-r",
+    "title": "Introdução ao R - Parte I",
+    "section": "As bases de dados e o R",
+    "text": "As bases de dados e o R\nPodemos usar bases que tenham formato de “tabela”:\n\ncada linha é um registro, e cada coluna traz algum detalhe sobre aquele registro\nas colunas ou linhas não estão mescladas ou agrupadas\nmuitas vezes são os arquivos do poder público salvos no formato .csv (mas nem sempre)"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#exemplo-de-base-de-dados",
+    "href": "slide-intro-r-parte-i.html#exemplo-de-base-de-dados",
+    "title": "Introdução ao R - Parte I",
+    "section": "Exemplo de base de dados",
+    "text": "Exemplo de base de dados\nEleição para a Alesp em 2022:\n\n\n\n\n\nranking\nnome_urna_candidato\nsigla_partido\nvotos_2022\nvotos_2018\ngenero\ngrau_instrucao\ncor_raca\nocupacao\n\n\n\n\n1\nEDUARDO SUPLICY\nPT\n807015\nNA\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nVEREADOR\n\n\n2\nCARLOS GIANNAZI\nPSOL\n276811\n218705\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n3\nPAULA DA BANCADA FEMINISTA\nPSOL\n259771\nNA\nFEMININO\nSUPERIOR COMPLETO\nPRETA\nADVOGADO\n\n\n4\nBRUNO ZAMBELLI\nPL\n235305\nNA\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nOUTROS\n\n\n5\nMAJOR MECCA\nPL\n224462\n131531\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n6\nTOMÉ ABDUCH\nREP\n221656\nNA\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nENGENHEIRO\n\n\n7\nANDRÉ DO PRADO\nPL\n216268\n123313\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n8\nTENENTE COIMBRA\nPL\n209705\n24109\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n9\nDELEGADO OLIM\nPP\n201348\n161569\nMASCULINO\nSUPERIOR COMPLETO\nBRANCA\nDEPUTADO\n\n\n10\nANA CAROLINA SERRA\nCID\n198698\nNA\nFEMININO\nSUPERIOR COMPLETO\nBRANCA\nADVOGADO"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#outra-forma-de-ver",
+    "href": "slide-intro-r-parte-i.html#outra-forma-de-ver",
+    "title": "Introdução ao R - Parte I",
+    "section": "Outra forma de ver",
+    "text": "Outra forma de ver"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#breve-glossário",
+    "href": "slide-intro-r-parte-i.html#breve-glossário",
+    "title": "Introdução ao R - Parte I",
+    "section": "Breve glossário",
+    "text": "Breve glossário\n\nData frame: sinônimo para “tabela” ou “planilha”\nTibble: idem acima\nObjeto: é uma forma em que guardamos valores, um exemplo de objeto é um data frame.\nObservação: é sinônimo de “linha” na sua tabela\nVariável: é sinônimo de “coluna” na sua tabela"
+  },
+  {
+    "objectID": "slide-intro-r-parte-i.html#potencial-do-r",
+    "href": "slide-intro-r-parte-i.html#potencial-do-r",
+    "title": "Introdução ao R - Parte I",
+    "section": "Potencial do R",
+    "text": "Potencial do R\n\nAbrir uma base de dados\nLimpar a base de dados (ex: formatar uma data ou tirar os acentos dos nomes)\nTransformar a base de dados (ex: a partir da coluna de data, criar uma coluna nova só com o mês)\nVisualizar os dados em formatos de gráficos ou mapas (ou mesmo relatórios em PDF ou websites)\nE muito mais!"
+  },
+  {
+    "objectID": "como-chegar.html",
+    "href": "como-chegar.html",
+    "title": "Como chegar",
+    "section": "",
+    "text": "O evento acontecerá no Insper, em São Paulo - SP."
+  },
+  {
+    "objectID": "como-chegar.html#como-chegar",
+    "href": "como-chegar.html#como-chegar",
+    "title": "Como chegar",
+    "section": "Como chegar",
+    "text": "Como chegar\nEndereço: Rua Quatá, 200."
+  },
+  {
+    "objectID": "como-chegar.html#estacionamento",
+    "href": "como-chegar.html#estacionamento",
+    "title": "Como chegar",
+    "section": "Estacionamento",
+    "text": "Estacionamento\nExistem estacionamentos pagos nos dois prédios do Insper. Mais informações no site do Insper."
+  },
+  {
+    "objectID": "index.html",
+    "href": "index.html",
+    "title": "Oficina de Introdução ao R e ao Tidyverse",
+    "section": "",
+    "text": "Essa oficina acontecerá presencialmente, em São Paulo, em 28/10/2023.\nInscrições através da plataforma Meetup."
+  },
+  {
+    "objectID": "index.html#boas-vindas",
+    "href": "index.html#boas-vindas",
+    "title": "Oficina de Introdução ao R e ao Tidyverse",
+    "section": "",
+    "text": "Essa oficina acontecerá presencialmente, em São Paulo, em 28/10/2023.\nInscrições através da plataforma Meetup."
+  },
+  {
+    "objectID": "index.html#café-colaborativo-temático-halloween",
+    "href": "index.html#café-colaborativo-temático-halloween",
+    "title": "Oficina de Introdução ao R e ao Tidyverse",
+    "section": "Café colaborativo temático: Halloween!",
+    "text": "Café colaborativo temático: Halloween!\nNeste evento, teremos um café colaborativo. As pessoas participantes podem levar comes e bebes para compartilhar com o grupo, mas não é obrigatório!"
+  },
+  {
+    "objectID": "index.html#sorteio",
+    "href": "index.html#sorteio",
+    "title": "Oficina de Introdução ao R e ao Tidyverse",
+    "section": "Sorteio",
+    "text": "Sorteio\nNeste evento, teremos o sorteio de:\n\n3 bolsas para o curso R para Ciência de Dados da Curso-R\n1 exemplar do livro “Storytelling com dados: Um guia sobre visualização de dados para profissionais de negócios”, por Cole Nussbaumer (Doação por Renata Hirota)\n1 exemplar do livro “Como mentir com Estatística” por Darrell Huff, (Doação por Renata Hirota)"
+  },
+  {
+    "objectID": "index.html#espaço-gugudadados",
+    "href": "index.html#espaço-gugudadados",
+    "title": "Oficina de Introdução ao R e ao Tidyverse",
+    "section": "Espaço Gugudadados",
+    "text": "Espaço Gugudadados\nO Espaço Gugudadados é um espaço feito para facilitar a participação de mães e pessoas cuidadoras. Este espaço fica próximo à sala principal da atividade, e contará com brinquedos e pessoas adultas que acompanharão as crianças durante o evento principal. Também teremos a presença de uma professora remunerada para acompanhar as crianças.\nCaso queira saber mais sobre como foi em eventos anteriores, leia aqui."
+  },
+  {
+    "objectID": "index.html#auxílio-alimentação-e-transporte",
+    "href": "index.html#auxílio-alimentação-e-transporte",
+    "title": "Oficina de Introdução ao R e ao Tidyverse",
+    "section": "Auxílio alimentação e transporte",
+    "text": "Auxílio alimentação e transporte\nNeste evento, teremos auxílio de alimentação e transporte para algumas pessoas participantes. Caso você tenha solicitado o auxílio, entre em contato com a equipe da organização durante o evento para que o valor seja transferido."
+  },
+  {
+    "objectID": "index.html#protocolos-referentes-à-covid-19",
+    "href": "index.html#protocolos-referentes-à-covid-19",
+    "title": "Oficina de Introdução ao R e ao Tidyverse",
+    "section": "Protocolos referentes à COVID-19",
+    "text": "Protocolos referentes à COVID-19\nRecomendamos que pessoas adultas que compareçam ao eventos tenham tomado pelo menos 2 doses da vacina contra Covid-19."
+  },
+  {
+    "objectID": "index.html#código-de-conduta",
+    "href": "index.html#código-de-conduta",
+    "title": "Oficina de Introdução ao R e ao Tidyverse",
+    "section": "Código de conduta",
+    "text": "Código de conduta\nEste código de conduta aplica-se a todos os espaços R-Ladies, incluindo: meetups, Twitter, Slack, listas de discussão, tanto online como offline: Clique aqui para acessar o código de conduta."
+  },
+  {
+    "objectID": "index.html#siga-a-r-ladies-são-paulo",
+    "href": "index.html#siga-a-r-ladies-são-paulo",
+    "title": "Oficina de Introdução ao R e ao Tidyverse",
+    "section": "Siga a R-Ladies São Paulo!",
+    "text": "Siga a R-Ladies São Paulo!\n\nBlog\nLinkedin\nMeetup\nYoutube\nTwitter\nInstagram"
+  },
+  {
+    "objectID": "index.html#apoio",
+    "href": "index.html#apoio",
+    "title": "Oficina de Introdução ao R e ao Tidyverse",
+    "section": "Apoio",
+    "text": "Apoio\n\n\n\n\n\n\n\n\nR Consortium Logo"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#scripts",
+    "href": "slide-intro-r-parte-ii.html#scripts",
+    "title": "Introdução ao R - Parte II",
+    "section": "Scripts",
+    "text": "Scripts\n\nPodemos salvar nossos scripts para utilizar depois!\nConsidere tudo no console como temporário, pois não salvamos o conteúdo.\nEscreva no Script/Editor os códigos importantes para a análise."
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#r-como-uma-calculadora",
+    "href": "slide-intro-r-parte-ii.html#r-como-uma-calculadora",
+    "title": "Introdução ao R - Parte II",
+    "section": "R como uma calculadora",
+    "text": "R como uma calculadora\n\nPodemos usar o R como uma calculadora:\n\n\n1 / 200 * 30\n\n[1] 0.15\n\n(59 + 73 + 2) / 3\n\n[1] 44.66667\n\nsin(pi / 2) # seno da divisao de pi por 2\n\n[1] 1\n\n10 %/% 3 # parte inteira da divisao por 3\n\n[1] 3\n\n10 %% 3 # resto da divisao por 3\n\n[1] 1"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#executando-códigos",
+    "href": "slide-intro-r-parte-ii.html#executando-códigos",
+    "title": "Introdução ao R - Parte II",
+    "section": "Executando códigos",
+    "text": "Executando códigos\n\nO atalho Cmd/Ctrl + Enter é um dos mais úteis! Executa o código selecionado, ou o trecho de código onde o cursor está.\nO atalho Cmd/Ctrl + Shift + S executa todos os códigos do script!"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#criando-objetos",
+    "href": "slide-intro-r-parte-ii.html#criando-objetos",
+    "title": "Introdução ao R - Parte II",
+    "section": "Criando objetos",
+    "text": "Criando objetos\n\nPodemos criar objetos (e guardar resultados) usando o operador de atribuição &lt;-, e a estrutura a seguir:\n\nnome_do_objeto &lt;- valor\nExemplo:\n\nx &lt;- 3 * 4\n\nPodemos ver o conteúdo do objeto escrevendo o nome e executando:\n\nx\n\n[1] 12"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#boas-práticas-e-objetos",
+    "href": "slide-intro-r-parte-ii.html#boas-práticas-e-objetos",
+    "title": "Introdução ao R - Parte II",
+    "section": "Boas práticas e objetos",
+    "text": "Boas práticas e objetos\n\nAtalho Alt - (Alt e menos) serve para escrever o sinal de atribuição mais rápido.\nO sinal = também funciona neste caso: porém como boa prática de escrita de código nós não usamos\nAproveite para usar a tecla Tab no RStudio: ajuda a autocompletar!\nO R é case sensitive:\n\n\nr_rocks &lt;- 2 ^ 3\n\n\nr_rock\n#&gt; Error: object 'r_rock' not found\nR_rocks\n#&gt; Error: object 'R_rocks' not found\nr_rocks\n#&gt; [1] 8"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#boas-práticas-e-objetos-1",
+    "href": "slide-intro-r-parte-ii.html#boas-práticas-e-objetos-1",
+    "title": "Introdução ao R - Parte II",
+    "section": "Boas práticas e objetos",
+    "text": "Boas práticas e objetos\n\nErros de digitação e de maiúscula/minúscula importam!\nCuidado ao dar nomes aos objetos:\n\n\neu_uso_snake_case\noutrasPessoasUsamCamelCase\nalgumas.pessoas.usam.pontos\nE_Algumas.Pessoas_RENUNCIAMconvenções"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#entendendo-melhor-um-objeto",
+    "href": "slide-intro-r-parte-ii.html#entendendo-melhor-um-objeto",
+    "title": "Introdução ao R - Parte II",
+    "section": "Entendendo melhor um objeto",
+    "text": "Entendendo melhor um objeto\nUm objeto é onde nossos dados são armazenados dentro do R.\nUm objeto sempre tem uma classe e um tipo\nGeralmente chamamos de “valor” tudo o que está dentro de um objeto, PORÉM:\n\nValores não precisam ser números.\nEles podem ser texto, por exemplo.\n\n\npessoa &lt;- \"Bruna\"\npessoa \n\n[1] \"Bruna\""
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#as-classes-dos-objetos",
+    "href": "slide-intro-r-parte-ii.html#as-classes-dos-objetos",
+    "title": "Introdução ao R - Parte II",
+    "section": "As classes dos objetos",
+    "text": "As classes dos objetos\n\nOs objetos podem conter dados de diferentes naturezas (um texto, um número, um booleano). É o quê estamos armazenando.\n\n\n\n\n\n\n\n\nCLASSE\nSINÔNIMO\n\n\n\n\ncharacter\ntexto, string, caractere\n\n\ninteger\nnúmeros inteiros\n\n\nnumeric\nnúmeros racionais (número representado por uma fração\n\n\ncomplex\nnúmeros complexos (raramente usado)\n\n\nlogic\nlógico, booleano, valor TRUE/FALSE\n\n\nfactor\nvariáveis categóricas"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#exemplos-de-classes",
+    "href": "slide-intro-r-parte-ii.html#exemplos-de-classes",
+    "title": "Introdução ao R - Parte II",
+    "section": "Exemplos de classes",
+    "text": "Exemplos de classes\n\nnome &lt;- 'Rladies' # texto\nnome\n\n[1] \"Rladies\"\n\nidade &lt;- '40' # texto\nidade\n\n[1] \"40\"\n\nidade2 &lt;- 40L # numero inteiro\nidade2\n\n[1] 40\n\npassagem &lt;- 4.40 # numero decimal\npassagem\n\n[1] 4.4"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#exemplos-de-classes-1",
+    "href": "slide-intro-r-parte-ii.html#exemplos-de-classes-1",
+    "title": "Introdução ao R - Parte II",
+    "section": "Exemplos de classes",
+    "text": "Exemplos de classes\n\ncorrente &lt;- 3 + 2i # numero complexo\ncorrente\n\n[1] 3+2i\n\nsou_linda &lt;- TRUE # booleano\nsou_linda\n\n[1] TRUE\n\nescolaridade &lt;- c(\"Médio\", \"Superior\", \"Fundamental\", \"Fundamental\", \"Médio\")\nfator &lt;- as.factor(escolaridade) # cria objt do tipo factor\nfator # na linha levels temos os rótulos dos fatores\n\n[1] Médio       Superior    Fundamental Fundamental Médio      \nLevels: Fundamental Médio Superior"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#exemplos-de-classes-2",
+    "href": "slide-intro-r-parte-ii.html#exemplos-de-classes-2",
+    "title": "Introdução ao R - Parte II",
+    "section": "Exemplos de classes",
+    "text": "Exemplos de classes\nDICA: a função class() mostra a classe de um objeto\n\nnome &lt;- 'R-ladies SP'\nclass(nome)\n\n[1] \"character\"\n\npassagem &lt;- 4.40\nclass(passagem)\n\n[1] \"numeric\"\n\nnivel &lt;- as.factor(c('baixo', 'médio', 'alto'))\nclass(nivel)\n\n[1] \"factor\""
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#os-tipos-de-objetos",
+    "href": "slide-intro-r-parte-ii.html#os-tipos-de-objetos",
+    "title": "Introdução ao R - Parte II",
+    "section": "Os tipos de objetos",
+    "text": "Os tipos de objetos\nÉ como armazenamos os dados dentro do R\nVector: armazena elementos de mesma classe\nMatrix: vetores de duas dimensões que armazenam elementos de mesma classe.\nList: tipo especial de vetor que aceita elementos de classes diferentes.\nData.frame: são tabelas de dados com linhas e colunas, como uma tabela do Excel. Como são listas, essas colunas podem ser de classes diferentes."
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#na",
+    "href": "slide-intro-r-parte-ii.html#na",
+    "title": "Introdução ao R - Parte II",
+    "section": "NA",
+    "text": "NA\nUma característica importante do R que pode dicultar a comparação são os valores ausentes ou NAs (não disponíveis).\n\nNA &gt; 10\n\n[1] NA\n\n\n\nNA == NA\n\n[1] NA\n\n\nis.na() é a função que testa se um objeto é NA"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#estrutura-condicional-if-e-else",
+    "href": "slide-intro-r-parte-ii.html#estrutura-condicional-if-e-else",
+    "title": "Introdução ao R - Parte II",
+    "section": "Estrutura condicional: IF e ELSE",
+    "text": "Estrutura condicional: IF e ELSE\n\nmes &lt;- \"Dezembro\"\n\nif(mes == \"Dezembro\") {\n print(\"O Natal chegou!\") # mostra essa mensagem.\n} else {\n print(\"O ano ainda não acabou!\") # mostra essa mensagem.\n}\n\n[1] \"O Natal chegou!\""
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#estrutura-de-repetição-for",
+    "href": "slide-intro-r-parte-ii.html#estrutura-de-repetição-for",
+    "title": "Introdução ao R - Parte II",
+    "section": "Estrutura de repetição: FOR",
+    "text": "Estrutura de repetição: FOR\nCom o laço for podemos executar a mesma ação em todos os elementos de uma lista. Essa é uma das maneiras mais comuns para um computador automatizar tarefas repetitivas.\n\npersonagens &lt;- c('Luke Skywalker', 'C-3PO', 'R2-D2', 'Darth Vader', 'Leia Organa') # vetor de strings\n\nfor(i in seq_along(personagens)) {\n print(personagens[i])\n}\n\n[1] \"Luke Skywalker\"\n[1] \"C-3PO\"\n[1] \"R2-D2\"\n[1] \"Darth Vader\"\n[1] \"Leia Organa\""
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#operadores-relacionais",
+    "href": "slide-intro-r-parte-ii.html#operadores-relacionais",
+    "title": "Introdução ao R - Parte II",
+    "section": "Operadores relacionais",
+    "text": "Operadores relacionais\n\n\n\nOperador\nDescrição\n\n\n\n\n==\nigual\n\n\n!=\ndiferente\n\n\n&gt;\nmaior\n\n\n&lt;\nmenor\n\n\n&gt;=\nmaior ou igual a\n\n\n&lt;=\nmenor ou igual que"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#operadores-lógicos",
+    "href": "slide-intro-r-parte-ii.html#operadores-lógicos",
+    "title": "Introdução ao R - Parte II",
+    "section": "Operadores lógicos",
+    "text": "Operadores lógicos\n\n\n\nOperador\nDescrição\n\n\n\n\n!\nsignifica NÃO\n\n\n&\nsignifica E\n\n\n|\nsignifica OU\n\n\n%in%\nsignifica “contém”"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#o-operador-pipe-ou",
+    "href": "slide-intro-r-parte-ii.html#o-operador-pipe-ou",
+    "title": "Introdução ao R - Parte II",
+    "section": "O operador pipe: %>% ou |>",
+    "text": "O operador pipe: %&gt;% ou |&gt;\n(pense nele como uma vírgula!)\n\npipe = cano, encanamento, fazer a informação fluir\no valor do lado esquerdo do pipe vira argumento para a função do lado direito e assim por diante\n\ndf &lt;- iris |&gt; \n  dplyr::select(Sepal.Length, Sepal.Width) |&gt;\n  dplyr::filter(Sepal.Length &gt; 7.6) |&gt;\n  dplyr::arrange(desc(Sepal.Length))\n\n\n\n\nAtalho: CTRL + SHIFT + M"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#o-que-é-uma-função",
+    "href": "slide-intro-r-parte-ii.html#o-que-é-uma-função",
+    "title": "Introdução ao R - Parte II",
+    "section": "O que é uma função?",
+    "text": "O que é uma função?\n\nFunção: uma palavra que, no código, dá um comando ao computador.\nEla é escrita seguida de parênteses.\nNos parênteses incluímos os atributos (inputs).\nO output vai ser a informação que o computador retorna após rodar a função.\n\n(pense nela como um verbo!)"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#função-no-r",
+    "href": "slide-intro-r-parte-ii.html#função-no-r",
+    "title": "Introdução ao R - Parte II",
+    "section": "Função no R",
+    "text": "Função no R\n\naltura_carol &lt;- 1.54\naltura_lucas &lt;- 1.89\naltura_media &lt;- mean(c(altura_carol, altura_lucas))\naltura_media\n\n[1] 1.715\n\n\n\n\nmean = função para calcular a média\nargumentos = informações que vão entre parênteses para indicar o que a função deve fazer\nc() = para criar um vetor (uma lista com mais de um item a ser aplicado no cálculo)"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#utilizando-funções",
+    "href": "slide-intro-r-parte-ii.html#utilizando-funções",
+    "title": "Introdução ao R - Parte II",
+    "section": "Utilizando funções",
+    "text": "Utilizando funções\n\nO R possui muitas funções disponíveis\nEstrutura para utilizar uma função:\n\n\nnome_da_funcao(nome_do_argumento_1 = valor_para_o_argumento1,\n               nome_do_argumento_2 = valor_para_o_argumento2,\n               nome_do_argumento_3 = valor_para_o_argumento3,\n               ...)\n\nExemplo:\n\nseq(from = 1, to = 10)\n\n [1]  1  2  3  4  5  6  7  8  9 10\n\n\n\nParênteses (e aspas) sempre devem estar em “duplas”: se abrirmos, temos que fechar."
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#o-que-é-um-pacote-de-r",
+    "href": "slide-intro-r-parte-ii.html#o-que-é-um-pacote-de-r",
+    "title": "Introdução ao R - Parte II",
+    "section": "O que é um pacote de R?",
+    "text": "O que é um pacote de R?\n\nConjunto de funções úteis pra determinada análise.\nEles são disponibilizados em repositórios. Os dois principais repositórios são o CRAN e o GitHub.\nOs pacotes são instalados apenas uma vez e devem ser carregados sempre que queremos utilizá-los."
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#instalar-e-carregar-pacotes",
+    "href": "slide-intro-r-parte-ii.html#instalar-e-carregar-pacotes",
+    "title": "Introdução ao R - Parte II",
+    "section": "Instalar e carregar pacotes",
+    "text": "Instalar e carregar pacotes\n\nPara instalar um pacote que está no CRAN, usamos a função install.packages:\n\ninstall.packages(\"tidyverse\")\n\nCaso o pacote esteja no GitHub, é possível fazer a instalação via função install_github do pacote devtools:\n\ninstall.packages(\"devtools\")\n\ndevtools::install_github('rfsaldanha/microdatasus')\n\nPara carregar o pacote usamos a função library:\n\nlibrary(tidyverse)\nlibrary(microdatasus)"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#boas-práticas-resumo",
+    "href": "slide-intro-r-parte-ii.html#boas-práticas-resumo",
+    "title": "Introdução ao R - Parte II",
+    "section": "Boas práticas (resumo)",
+    "text": "Boas práticas (resumo)\nNome de variáveis:\n\nNão usar maiúscula, espaços ou acentos pra criar o nome\nNão começar o nome com um número\nEscolher nomes úteis e não redundantes\n\nCódigo e comentários:\n\nInserir espaços só após as vírgulas e parênteses\nEvite comentar demais e de menos (com a hashtag #)\nUse a quebra de linha para facilitar a leitura"
+  },
+  {
+    "objectID": "slide-intro-r-parte-ii.html#erros-mais-comuns",
+    "href": "slide-intro-r-parte-ii.html#erros-mais-comuns",
+    "title": "Introdução ao R - Parte II",
+    "section": "Erros mais comuns!",
+    "text": "Erros mais comuns!\n\nRodar uma linha de código sem ter rodado as anteriores, que fazem parte de uma “sequência” de comandos para o programa\nPequenos erros de digitação ao escrever o código\nNão selecionar o trecho inteiro de código na hora de rodar\nDica: o pacote tidylog te dá um relatório de tudo o que ele fez, e ajuda a encontrar a origem dos erros\n\n\n\n\nSlides feitos com Quarto e Quarto R-Ladies Theme."
+  },
+  {
+    "objectID": "mensagem-auxilios.html",
+    "href": "mensagem-auxilios.html",
+    "title": "Auxílio financeiro",
+    "section": "",
+    "text": "Para quem solicitou o auxílio alimentação, será destinado o valor fixo de R$ 50,00 (cinquenta reais) por pessoa.\nAo checar no evento, procure a Haydee Svab, que faz parte da equipe organizadora. Ela estará responsável por fazer as transferências dos valores (preferencialmente via PIX)."
+  },
+  {
+    "objectID": "mensagem-auxilios.html#auxílio-alimentação",
+    "href": "mensagem-auxilios.html#auxílio-alimentação",
+    "title": "Auxílio financeiro",
+    "section": "",
+    "text": "Para quem solicitou o auxílio alimentação, será destinado o valor fixo de R$ 50,00 (cinquenta reais) por pessoa.\nAo checar no evento, procure a Haydee Svab, que faz parte da equipe organizadora. Ela estará responsável por fazer as transferências dos valores (preferencialmente via PIX)."
+  },
+  {
+    "objectID": "mensagem-auxilios.html#auxílio-transporte",
+    "href": "mensagem-auxilios.html#auxílio-transporte",
+    "title": "Auxílio financeiro",
+    "section": "Auxílio transporte",
+    "text": "Auxílio transporte\nPara quem solicitou o auxílio alimentação, será destinado o valor que foi solicitado no formulário.\nO valor de auxílio será disponibilizado preferencialmente ao chegar no evento (formato de reembolso). Ao checar no evento, procure a Haydee Svab, que faz parte da equipe organizadora. Ela estará responsável por fazer as transferências dos valores (preferencialmente via PIX).\nCaso a sua participação seja inviabilizada nesta modalidade de reembolso ao chegar no evento, nos avise para que possamos alinhar outras formas de transferir o valor."
+  },
+  {
+    "objectID": "perguntas-frequentes.html",
+    "href": "perguntas-frequentes.html",
+    "title": "Perguntas frequentes",
+    "section": "",
+    "text": "O evento será transmitido online?\n\nEste evento não será transmitido online, será apenas presencial.\nFuturamente, planejamos realizar um evento de introdução ao R e ao Tidyverse online.\nCaso queira ver a gravação dos eventos online passados, confira no nosso canal do Youtube.\nRecomendamos também seguir as atividades de outros capítulos da R-Ladies, como a R-Ladies Goiânia."
+  },
+  {
+    "objectID": "perguntas-frequentes.html#formato",
+    "href": "perguntas-frequentes.html#formato",
+    "title": "Perguntas frequentes",
+    "section": "",
+    "text": "O evento será transmitido online?\n\nEste evento não será transmitido online, será apenas presencial.\nFuturamente, planejamos realizar um evento de introdução ao R e ao Tidyverse online.\nCaso queira ver a gravação dos eventos online passados, confira no nosso canal do Youtube.\nRecomendamos também seguir as atividades de outros capítulos da R-Ladies, como a R-Ladies Goiânia."
+  },
+  {
+    "objectID": "perguntas-frequentes.html#alimentação",
+    "href": "perguntas-frequentes.html#alimentação",
+    "title": "Perguntas frequentes",
+    "section": "Alimentação",
+    "text": "Alimentação\n\nPosso levar meu próprio lanche?\n\nSim! O Insper tem um andar com várias mesas e cadeiras, e também tem microondas para esquentar comida caso seja necessário."
+  },
+  {
+    "objectID": "slides.html",
+    "href": "slides.html",
+    "title": "Slides e materiais",
+    "section": "",
+    "text": "Slide\nMinistrante\n\n\n\n\n\nConhecendo as R-Ladies São Paulo\nBianca Muniz\n\n\n\nIntrodução ao R - Parte 1\nHaydee Svab e Renata Hirota\n\n\n\nIntrodução ao R - Parte 2\nHaydee Svab e Renata Hirota\n\n\n\nIntrodução ao Tidyverse\nBianca Muniz e Geovana Batista\n\n\n\nMateriais da oficina - arquivos e tabelas\nAna Carolina Moreno e Jean Prado\n\n\n\nScript de prática do Tidyverse\nPara treinarem em casa :)"
+  },
+  {
+    "objectID": "slides.html#agradecimentos",
+    "href": "slides.html#agradecimentos",
+    "title": "Slides e materiais",
+    "section": "Agradecimentos",
+    "text": "Agradecimentos\nAgradecimentos várias pessoas pela contribuição, direta ou indireta, neste material.\n\nEquipe R-Ladies São Paulo\nLucas Gelape\nCurso-R"
+  },
+  {
+    "objectID": "mensagens.html",
+    "href": "mensagens.html",
+    "title": "Mensagens",
+    "section": "",
+    "text": "Materiais da oficina - arquivos e tabelas\nDe preferência, instale o R e o RStudio antes da oficina:\n\nGuia de instalação do R: https://livro.curso-r.com/1-1-instalacao-do-r.html\nGuia de instalação do RStudio: https://livro.curso-r.com/1-2-instalacao-do-rstudio.html\n\nPreencham a lista de presença! O link será disponibilizado durante a atividade. Essa lista será usada para gerar os certificados e para realizar os sorteios :)\nTemos um grupo no telegram! Caso queiram entrar, peça para alguma das pessoas organizadoras.\nFolhas de cola\nBolsas de diversidade Curso-R para 2023"
+  },
+  {
+    "objectID": "mensagens.html#formulário-de-feedback",
+    "href": "mensagens.html#formulário-de-feedback",
+    "title": "Mensagens",
+    "section": "Formulário de feedback!",
+    "text": "Formulário de feedback!\n\nEm breve!"
+  },
+  {
+    "objectID": "apoio.html#apoio-financeiro",
+    "href": "apoio.html#apoio-financeiro",
+    "title": "Apoio",
+    "section": "Apoio financeiro",
+    "text": "Apoio financeiro\n\n\n\nR Consortium Logo"
+  },
+  {
+    "objectID": "apoio.html#bolsas-para-sorteio",
+    "href": "apoio.html#bolsas-para-sorteio",
+    "title": "Apoio",
+    "section": "Bolsas para sorteio",
+    "text": "Bolsas para sorteio"
+  },
+  {
+    "objectID": "slide-rladies.html#o-que-é-a-r-ladies",
+    "href": "slide-rladies.html#o-que-é-a-r-ladies",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "O que é a R-Ladies?",
+    "text": "O que é a R-Ladies?\nR-Ladies é uma organização mundial cuja missão é promover a diversidade de gênero na comunidade da linguagem R.\nR-Ladies São Paulo integra, orgulhosamente, a organização R-Ladies Global, em São Paulo."
+  },
+  {
+    "objectID": "slide-rladies.html#como",
+    "href": "slide-rladies.html#como",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "Como?",
+    "text": "Como?\nAtravés de meetups e mentorias em um ambiente seguro e amigável.\nNosso principal objetivo é promover a linguagem computacional estatística R compartilhando conhecimento, assim, quem tiver interesse na linguagem será bem-vinda, independente do nível de conhecimento.\n\nFonte: About us - R-Ladies, Meetup - São Paulo"
+  },
+  {
+    "objectID": "slide-rladies.html#para-quem",
+    "href": "slide-rladies.html#para-quem",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "Para quem?",
+    "text": "Para quem?\nNosso principal público-alvo são as pessoas que se identificam com gêneros sub-representados na comunidade R, portanto: mulheres cis, mulheres trans, homens trans, pessoas não-binárias e queer."
+  },
+  {
+    "objectID": "slide-rladies.html#missão",
+    "href": "slide-rladies.html#missão",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "Missão",
+    "text": "Missão\nComo uma iniciativa de diversidade, a missão das R-Ladies é alcançar uma representação proporcional de pessoas de gêneros atualmente sub-representados na comunidade R, incentivando, inspirando e capacitando-as."
+  },
+  {
+    "objectID": "slide-rladies.html#código-de-conduta",
+    "href": "slide-rladies.html#código-de-conduta",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "Código de conduta",
+    "text": "Código de conduta\nA R-Ladies dedica-se a proporcionar uma experiência livre de assédio para todas as pessoas partcicipantes, desta forma, não é tolerada nenhuma forma de assédio. Código de conduta - R-Ladies\n\nFonte: About us - R-Ladies, Meetup - São Paulo"
+  },
+  {
+    "objectID": "slide-rladies.html#r-ladies---capítulos-no-mundo",
+    "href": "slide-rladies.html#r-ladies---capítulos-no-mundo",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "R-Ladies - Capítulos no mundo",
+    "text": "R-Ladies - Capítulos no mundo\nA R-Ladies é amplamente presente na América Latina!\n\n\n\n\n\nRegião\nNúmero de Capítulos\nTotal de participantes\n\n\n\n\nUS/Canada\n59\n30112\n\n\nLatin America\n58\n27774\n\n\nEurope\n57\n25056\n\n\nAsia\n19\n5806\n\n\nAfrica\n12\n5688\n\n\nAustralia\n10\n5371\n\n\nPacific/Galapagos\n1\n460\n\n\n\n\n\n\nAtualizado em: 06/2023. Fonte: R Community Explorer"
+  },
+  {
+    "objectID": "slide-rladies.html#r-ladies-no-brasil",
+    "href": "slide-rladies.html#r-ladies-no-brasil",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "R-Ladies no Brasil",
+    "text": "R-Ladies no Brasil\nExistem vários capítulos no Brasil. O capítulo de Goiânia realiza mensalmente eventos online.\n\n\n\n\n\n\n\n\n\nCapítulo\nParticipantes\n\n\n\n\nR-Ladies São Paulo\n1340\n\n\nR-Ladies Belo Horizonte\n894\n\n\nR-Ladies Niterói\n760\n\n\nR-Ladies Rio de Janeiro\n644\n\n\nR-Ladies Natal\n456\n\n\nR-Ladies Floripa\n448\n\n\nR-Ladies Goiânia\n417\n\n\n\n\n\n\nAtualizado em: 06/2023. Fonte: R Community Explorer"
+  },
+  {
+    "objectID": "slide-rladies.html#r-ladies-no-brasil-1",
+    "href": "slide-rladies.html#r-ladies-no-brasil-1",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "R-Ladies no Brasil",
+    "text": "R-Ladies no Brasil\n\n\n\n\n\n\n\n\n\nCapítulo\nParticipantes\n\n\n\n\nR-Ladies Porto Alegre\n362\n\n\nR-Ladies Salvador\n246\n\n\nR-Ladies Vitória\n218\n\n\nR-Ladies Recife\n153\n\n\nR-Ladies Fortaleza\n112\n\n\nR-Ladies Lavras\n66\n\n\nR-Ladies Curitiba\n63\n\n\nR-Ladies Brasília\n61\n\n\nR-Ladies São Mateus\n10\n\n\n\n\n\n\nAtualizado em: 06/2023. Fonte: R Community Explorer"
+  },
+  {
+    "objectID": "slide-rladies.html#r-ladies-em-são-paulo",
+    "href": "slide-rladies.html#r-ladies-em-são-paulo",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "R-Ladies em São Paulo",
+    "text": "R-Ladies em São Paulo\n\n\nPrimeiro encontro da R-Ladies São Paulo - 2018\n+ 1340 pessoas participantes - 06/2023"
+  },
+  {
+    "objectID": "slide-rladies.html#gugudadados",
+    "href": "slide-rladies.html#gugudadados",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "GuGuDaDados",
+    "text": "GuGuDaDados\nPrimeira edição em novembro/2022."
+  },
+  {
+    "objectID": "slide-rladies.html#blog-rladies-sp.org",
+    "href": "slide-rladies.html#blog-rladies-sp.org",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "Blog: rladies-sp.org",
+    "text": "Blog: rladies-sp.org\n\nTextos escritos por pessoas da comunidade"
+  },
+  {
+    "objectID": "slide-rladies.html#apoio-financeiro",
+    "href": "slide-rladies.html#apoio-financeiro",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "Apoio financeiro",
+    "text": "Apoio financeiro\n\nR Consortium Logo\nAuxílio transporte e alimentação para o evento;\nPagamento da professora que acompanha o Gugudadados;\nCamisetas para equipe de organização;"
+  },
+  {
+    "objectID": "slide-rladies.html#saiba-mais-sobre-a-r-ladies",
+    "href": "slide-rladies.html#saiba-mais-sobre-a-r-ladies",
+    "title": "Conhecendo a R-Ladies São Paulo",
+    "section": "Saiba mais sobre a R-Ladies",
+    "text": "Saiba mais sobre a R-Ladies\n\nR-Ladies Global: Website,  Twitter\nR-Ladies São Paulo:\n\nBlog: https://rladies-sp.org/\n Linkedin\n\n Twitter\n Instagram\n Facebook\n Meetup\n GitHub\n Youtube\n\n\n\n\n\n\n\n\nSlides feitos com Quarto e Quarto R-Ladies Theme."
+  },
+  {
+    "objectID": "alimentacao.html",
+    "href": "alimentacao.html",
+    "title": "Alimentação",
+    "section": "",
+    "text": "As pessoas participantes podem levar comes e bebes para compartilhar com o grupo, mas não é obrigatório!"
+  },
+  {
+    "objectID": "alimentacao.html#café-colaborativo",
+    "href": "alimentacao.html#café-colaborativo",
+    "title": "Alimentação",
+    "section": "",
+    "text": "As pessoas participantes podem levar comes e bebes para compartilhar com o grupo, mas não é obrigatório!"
+  },
+  {
+    "objectID": "alimentacao.html#alimentação-no-insper",
+    "href": "alimentacao.html#alimentação-no-insper",
+    "title": "Alimentação",
+    "section": "Alimentação no Insper",
+    "text": "Alimentação no Insper\nO Insper tem duas unidades na mesma rua:\n\nNo prédio 1 (Rua Quatá 300), no 5º andar existe um restaurante por kilo, e também um refeitório com microondas.\nNo prédio 2 (Quatá 200), no 6º andar existe uma lanchonete, um refeitório com mesas e microondas, além de um terraço com mesas.\n\nMais informações no site do Insper."
+  },
+  {
+    "objectID": "alimentacao.html#lista-de-restaurantes-na-proximidade",
+    "href": "alimentacao.html#lista-de-restaurantes-na-proximidade",
+    "title": "Alimentação",
+    "section": "Lista de restaurantes na proximidade",
+    "text": "Lista de restaurantes na proximidade\n\n\n\n\nRestaurante\nDistância em metros\n\n\n\nCharme da Vila\n100\n\n\nDona deôla (restaurante por kilo no Prédio 1 do Insper)\n140\n\n\nSukiya\n350\n\n\nBurguer King\n400"
+  }
+]
