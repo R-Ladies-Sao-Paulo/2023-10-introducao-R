@@ -1,0 +1,25 @@
+---
+title: "Slides e materiais"
+author: "R-Ladies São Paulo"
+format: html
+editor: visual
+---
+
+| Slide                                                                                                                                                           | Ministrante                      |     |
+|-------------------------------------|------------------|------------------|
+| [Conhecendo as R-Ladies São Paulo](slide-rladies.qmd){target="_blank"}                                                                                          | Bianca Muniz                      |     |
+| [Introdução ao R - Parte 1](slide-intro-r-parte-i.qmd){target="_blank"}                                                                                         | Haydee Svab e Renata Hirota       |     |
+| [Introdução ao R - Parte 2](slide-intro-r-parte-ii.qmd){target="_blank"}                                                                                        | Haydee Svab e Renata Hirota      |     |
+| [Introdução ao Tidyverse](slide-intro-tidyverse.qmd){target="_blank"}                                                                                           | Bianca Muniz e Geovana Batista |     |
+| [Materiais da oficina - arquivos e tabelas](https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/raw/main/materiais-oficina.zip){target="_blank"} | Ana Carolina Moreno e Jean Prado |     |
+| [Script de prática do Tidyverse](tidyverse-pratica.R){target="_blank"}                                                                                          | Para treinarem em casa :) |     |
+
+## Agradecimentos
+
+Agradecimentos várias pessoas pela contribuição, direta ou indireta, neste material.
+
+-   Equipe R-Ladies São Paulo
+
+-   Lucas Gelape
+
+-   Curso-R

@@ -1,0 +1,66 @@
+---
+title: "Oficina de Introdução ao R e ao Tidyverse"
+author: "R-Ladies São Paulo"
+format: html
+editor: visual
+---
+
+## Boas vindas!
+
+Essa oficina acontecerá presencialmente, em São Paulo, em 28/10/2023.
+
+Inscrições através da plataforma [Meetup](https://www.meetup.com/rladies-sao-paulo/).
+
+## Café colaborativo temático: Halloween!
+
+Neste evento, teremos um café colaborativo. As pessoas participantes podem levar comes e bebes para compartilhar com o grupo, mas **não** é obrigatório!
+
+## Sorteio
+
+Neste evento, teremos o sorteio de:
+
+-   3 bolsas para [o curso R para Ciência de Dados da Curso-R](https://loja.curso-r.com/cursos-individuais.html)
+
+-   1 exemplar do livro "Storytelling com dados: Um guia sobre visualização de dados para profissionais de negócios", por Cole Nussbaumer (Doação por Renata Hirota)
+
+-   1 exemplar do livro "Como mentir com Estatística" por Darrell Huff, (Doação por Renata Hirota)
+
+## Espaço Gugudadados
+
+O Espaço Gugudadados é um espaço feito para facilitar a participação de mães e pessoas cuidadoras. Este espaço fica próximo à sala principal da atividade, e contará com brinquedos e pessoas adultas que acompanharão as crianças durante o evento principal. Também teremos a presença de uma professora remunerada para acompanhar as crianças.
+
+Caso queira saber mais sobre como foi em eventos anteriores, [leia aqui](https://rladies-sp.org/posts/2023-03-evento-open-data-day/#espa%C3%A7o-gugudadados).
+
+## Auxílio alimentação e transporte
+
+Neste evento, teremos auxílio de alimentação e transporte para algumas pessoas participantes. Caso você tenha solicitado o auxílio, entre em contato com a equipe da organização durante o evento para que o valor seja transferido.
+
+## Protocolos referentes à COVID-19
+
+Recomendamos que pessoas adultas que compareçam ao eventos tenham tomado pelo menos 2 doses da vacina contra Covid-19.
+
+## Código de conduta
+
+Este código de conduta aplica-se a todos os espaços R-Ladies, incluindo: meetups, Twitter, Slack, listas de discussão, tanto online como offline: [Clique aqui para acessar o código de conduta](https://github.com/rladies/.github/blob/master/CODE_OF_CONDUCT.md#portuguese).
+
+## Siga a R-Ladies São Paulo!
+
+-   [Blog](https://rladies-sp.org/)
+
+-   [Linkedin](https://www.linkedin.com/company/r-ladies-sao-paulo/)
+
+-   [Meetup](https://www.meetup.com/rladies-sao-paulo/)
+
+-   [Youtube](https://www.youtube.com/c/RLadiesS%C3%A3oPaulo)
+
+-   [Twitter](https://twitter.com/RLadiesSaoPaulo)
+
+-   [Instagram](https://instagram.com/rladiessaopaulo)
+
+## Apoio
+
+[![](https://www.insper.edu.br/wp-content/uploads/2020/04/Insper-positivo.png){fig-alt="Logo do Insper" fig-align="center" width="30%"}](https://www.insper.edu.br/)
+
+![R Consortium Logo](https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png){width="50%" fig-align="center"}
+
+[![](https://blog.curso-r.com/images/logo.webp){fig-alt="Logo da Curso-R" fig-align="center" width="30%"}](https://curso-r.com/)

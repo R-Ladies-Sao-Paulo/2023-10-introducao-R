@@ -1,0 +1,18 @@
+---
+title: "Apoio"
+author: "R-Ladies São Paulo"
+format: html
+editor: visual
+---
+
+## Espaço
+
+[![](https://www.insper.edu.br/wp-content/uploads/2020/04/Insper-positivo.png){fig-alt="Logo do Insper" fig-align="center" width="50%"}](https://www.insper.edu.br/)
+
+## Apoio financeiro
+
+![R Consortium Logo](https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png){width="50%" fig-align="center"}
+
+## Bolsas para sorteio
+
+[![](https://blog.curso-r.com/images/logo.webp){fig-alt="Logo do Insper" fig-align="center" width="50%"}](https://curso-r.com/)

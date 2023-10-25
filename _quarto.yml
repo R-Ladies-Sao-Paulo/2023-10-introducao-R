@@ -1,0 +1,67 @@
+project:
+  type: website
+  output-dir: _site/
+
+lang: pt
+
+website:
+  page-navigation: true
+  title: " Oficina de Introdução ao R e ao Tidyverse"
+
+  sidebar:
+    title: " Oficina de Introdução ao R e ao Tidyverse <br>"
+    background: "#FFFFFF"
+    foreground: "#562457"
+    logo: img/logo.jpg
+    pinned: true
+    align: center
+    style: "docked"
+    search: true
+    collapse-level: 1
+    tools:
+      - icon: github
+        href: https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R
+        text: "GitHub Repository"
+
+    contents:
+      - href: index.qmd
+        text: "Página inicial"
+      - href: mensagens.qmd
+
+      - section: "Informações sobre o Espaço"
+        contents:
+           - como-chegar.qmd
+           - alimentacao.qmd
+
+      - href: slides.qmd
+      - href: perguntas-frequentes.qmd
+
+      - href: apoio.qmd
+        text: "Apoio"
+
+
+
+
+
+  page-footer:
+    right: "Página criada com [Quarto](https://quarto.org/). "
+    left: "&copy; Copyright 2023, R-Ladies São Paulo"
+    background: "#562457"
+
+
+
+
+
+format:
+  html:
+    theme: cosmo
+    css: custom.css
+    toc: true
+    code-copy: true
+    code-link: true
+    code-overflow: wrap
+
+editor: visual
+
+execute:
+  freeze: true

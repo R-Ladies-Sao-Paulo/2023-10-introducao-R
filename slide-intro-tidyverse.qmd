@@ -1,0 +1,204 @@
+---
+title: "Parte II - Introdução ao tidyverse"
+subtitle: "Oficina de Introdução ao R"
+author: "[R-Ladies São Paulo](https://www.meetup.com/rladies-sao-paulo/)"
+date: "2023-10-28"
+format: 
+  rladies-revealjs:
+    footer: "Slides feitos com [Quarto](https://quarto.org/docs/presentations/revealjs/index.html) e [Quarto R-Ladies Theme](https://github.com/beatrizmilz/quarto-rladies-theme#quarto-r-ladies-theme)."
+incremental: true
+---
+
+## Tidyverse
+
+![](https://github.com/R-Ladies-Sao-Paulo/2023-06-oficina-introducao-R/blob/main/img/img08_tidyverse.PNG?raw=true)
+
+## O que é?
+
+-   Um conjunto de pacotes que compartilham a mesma gramática e estrutura.
+
+-   Quando você instala/carrega o tidyverse, todos esses pacotes vêm junto de uma vez.
+
+-   Serve pra fazer o trabalho de análise **mais rápido e fácil**
+
+## Pacotes dentro do Tidyverse
+
+São vários os pacotes (<https://www.tidyverse.org/packages/>)
+
+Conseguem imaginar a utilidade dos pacotes abaixo?
+
+-   **readr:** abrir arquivos (bases de dados) e salvar tabelas
+
+-   **dplyr:** manipular a base (filtrar, criar colunas, agrupar, resumir, ordenar etc.)
+
+-   **stringr:** arrumar textos (string) identifcando padrões (regex)
+
+-   **lubridate:** ajusta datas e horas (ex: AAAA-MM-DD)
+
+-   **ggplot2:** visualização de dados
+
+-   **tidyr:** para organizar/arrumar os dados
+
+## 'Verbos mágicos' do dplyr
+
+Saber poucos comandos já basta pra começar a analisar!
+
+| FUNÇÃO        | O QUE FAZ                                     |
+|---------------|-----------------------------------------------|
+| **select**    | seleciona só algumas colunas da base          |
+| **filter**    | seleciona só algumas linhas da base           |
+| **mutate**    | cria colunas ou altera valores de uma coluna  |
+| **group_by**  | agrupa linhas de valores iguais em uma coluna |
+| **summarise** | par do group_by, cria o resumo desses grupos  |
+| **arrange**   | ordena a forma de visualizar a tabela         |
+
+## Mais 'verbos úteis'
+
+| FUNÇÃO          | O QUE FAZ                                  |
+|-----------------|--------------------------------------------|
+| **read_csv**    | abre o seu arquivo separado por vírgula    |
+| **read_csv2**   | arquivo separado por ponto e vírgula       |
+| **write_csv**   | salva a tabela num arquivo no computador   |
+| **rename**      | renomeia uma coluna                        |
+| **replace\_**\* | troca um valor p/ outro quando ele aparece |
+| **pivot\_**\*   | transforma linhas em colunas e vice-versa  |
+| **bind_rows**\* | junta as linhas de duas tabelas diferentes |
+| **str_sub**\*   | puxa só parte do valor de uma coluna       |
+
+## O operador pipe: %\>% ou \|\>
+
+-   pipe = cano, encanamento, fazer a informação fluir
+
+-   o valor do lado esquerdo do pipe vira argumento para a função do lado direito e assim por diante
+
+    ```{r}
+    df <- iris |> 
+      dplyr::select(Sepal.Length, Sepal.Width) |>
+      dplyr::filter(Sepal.Length > 7.6) |>
+      dplyr::arrange(desc(Sepal.Length))
+      
+    ```
+
+-   Atalho: *CTRL + SHIFT + M*
+
+## Exercícios
+
+Vamos aprender a conjugar na prática com dados da nova Assembleia Legislativa de São Paulo!
+
+Observem a tabela abaixo. Cada grupo terá uma pergunta para responder!
+
+> [tabela alesp.csv](https://github.com/R-Ladies-Sao-Paulo/2023-06-oficina-introducao-R/raw/main/data/alesp.csv)
+
+## Perguntas:
+
+1.  Quais mulheres foram eleitas em 2022?
+
+2.  Qual foi a média de votos em 2022 por raça?
+
+3.  Qual é o ranking de votos totais por partido em 2022?
+
+4.  Qual pessoa reeleita ganhou mais votos de 2018 para 2022?
+
+## Código 1:
+
+1- Quais mulheres foram eleitas em 2022?
+
+<br>
+
+(Dica: é com **"select"** ou com **"filter"**?)
+
+```{r}
+#| echo: true
+library(tidyverse)
+
+alesp <- read.csv2("data/alesp.csv",
+                   fileEncoding = "Windows-1252")
+
+sexo_feminino <- alesp %>% 
+  filter(genero == "FEMININO")
+  
+```
+
+## Resposta 1:
+
+1- Quais mulheres foram eleitas em 2022?
+
+```{r}
+knitr::kable(sexo_feminino) %>% 
+  kableExtra::kable_styling(font_size = 12)
+```
+
+## Código 2:
+
+2- Qual foi a média de votos em 2022 por raça?
+
+```{r}
+#| echo: true
+
+media_raca <- alesp %>% 
+  group_by(cor_raca) %>% 
+  summarise(media_votos = mean(votos_2022))
+  
+```
+
+## Resposta 2:
+
+2- Qual foi a média de votos em 2022 por raça?
+
+```{r}
+knitr::kable(media_raca) %>% 
+  kableExtra::kable_styling(font_size = 28)
+```
+
+## Código 3:
+
+3- Qual é o ranking de votos totais por partido em 2022?
+
+```{r}
+#| echo: true
+
+votos_partidos <- alesp %>% 
+  group_by(sigla_partido) %>% 
+  summarise(total_votos = sum(votos_2022)) %>% 
+  arrange(desc(total_votos))
+  
+```
+
+## Resposta 3:
+
+3- Qual é o ranking de votos totais por partido em 2022?
+
+```{r}
+knitr::kable(votos_partidos) %>% 
+  kableExtra::kable_styling(font_size = 16)
+```
+
+## Código 4:
+
+4- Qual deputado reeleito ganhou mais votos de 2018 para 2022?
+
+```{r}
+#| echo: true
+
+deputados <- alesp %>% 
+  filter(!is.na(votos_2018)) %>% 
+  mutate(variacao_votos = votos_2022 - votos_2018,
+         pct_variacao_votos = ( variacao_votos * 100 ) / votos_2018) %>% 
+  arrange(desc(pct_variacao_votos))
+  
+```
+
+## Resposta 4:
+
+4- Qual deputado reeleito ganhou mais votos de 2018 para 2022?
+
+```{r}
+knitr::kable(deputados) %>% 
+  kableExtra::kable_styling(font_size = 16)
+```
+
+## Hora de praticar!
+
+Vamos abrir o arquivo **tidyverse-pratica.R** para analisar dados sobre a eleição de policiais e militares no Legislativo.
+
+O objetivo vai ser atualizar [essa reportagem do G1](https://g1.globo.com/politica/eleicoes/2018/eleicao-em-numeros/noticia/2018/10/08/numero-de-policiais-e-militares-no-legislativo-e-quatro-vezes-maior-do-que-o-de-2014.ghtml) com os dados das eleições de 2022!

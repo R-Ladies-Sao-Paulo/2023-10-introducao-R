@@ -1,0 +1,26 @@
+---
+title: "Mensagens"
+author: "R-Ladies São Paulo"
+format: html
+editor: visual
+---
+
+-   [Materiais da oficina - arquivos e tabelas](https://github.com/R-Ladies-Sao-Paulo/2023-10-introducao-R/raw/main/materiais-oficina.zip){target="_blank"}
+
+-   De preferência, instale o R e o RStudio antes da oficina:
+
+    -   Guia de instalação do R: <https://livro.curso-r.com/1-1-instalacao-do-r.html>
+
+    -   Guia de instalação do RStudio: <https://livro.curso-r.com/1-2-instalacao-do-rstudio.html>
+
+-   Preencham a lista de presença! O link será disponibilizado durante a atividade. Essa lista será usada para gerar os certificados e para realizar os sorteios :)
+
+-   Temos um grupo no telegram! Caso queiram entrar, peça para alguma das pessoas organizadoras.
+
+-   [Folhas de cola](https://posit.co/resources/cheatsheets/?type=translations/#translation-10)
+
+-   [Bolsas de diversidade Curso-R para 2023](https://forms.gle/ejoanQgRfQzRqToq9){target="_blank"}
+
+## Formulário de feedback!
+
+-   Em breve!
