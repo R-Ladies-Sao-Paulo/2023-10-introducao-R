@@ -18,6 +18,6 @@ respostas |>
 
 # livro: como mentir com estatística
 
-# livro: ...
+# livro: Storytelling com dados
 
 # camiseta R-Ladies
