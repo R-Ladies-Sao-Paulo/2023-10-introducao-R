@@ -2,13 +2,12 @@
 title: "Conhecendo a R-Ladies São Paulo"
 subtitle: "Oficina de Introdução ao R"
 author: "[R-Ladies São Paulo](https://www.meetup.com/rladies-sao-paulo/)"
-date: "2023-06-24"
+date: "2023-10-28"
 format: 
   rladies-revealjs:
     footer: "Slides feitos com [Quarto](https://quarto.org/docs/presentations/revealjs/index.html) e [Quarto R-Ladies Theme](https://github.com/beatrizmilz/quarto-rladies-theme#quarto-r-ladies-theme)."
 incremental: false
 ---
-
 
 ```{r include=FALSE}
 # Base de dados
@@ -79,8 +78,7 @@ Atualizado em: `r  format(Sys.time(), '%m/%Y')`. Fonte: [R Community Explorer](h
 
 ## R-Ladies no Brasil
 
-Existem vários capítulos no Brasil.
-O capítulo de Goiânia realiza mensalmente eventos online.
+Existem vários capítulos no Brasil. O capítulo de Goiânia realiza mensalmente eventos online.
 
 ```{r echo=FALSE}
 rladies_br <- rladies |>
@@ -146,21 +144,21 @@ Primeira edição em novembro/2022.
 
 -   Textos escritos por pessoas da comunidade
 
-<center><embed type="text/html" src="https://rladies-sp.org/" width="90%" height="500"> </center>
+<center>
 
-## Apoio financeiro 
+<embed type="text/html" src="https://rladies-sp.org/" width="90%" height="500">
 
+</center>
 
+## Apoio financeiro
 
-![R Consortium Logo](https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png){alt="R Consortium Logo" width="50%" fig-align="center"}
+![R Consortium Logo](https://www.r-consortium.org/wp-content/uploads/sites/13/2016/09/RConsortium_Horizontal_Pantone.png){width="50%" fig-align="center"}
 
-- Auxílio transporte e alimentação para o evento;
+-   Auxílio transporte e alimentação para o evento;
 
-- Pagamento da professora que acompanha o Gugudadados;
+-   Pagamento da professora que acompanha o Gugudadados;
 
-- Camisetas para equipe de organização;
-
-
+-   Camisetas para equipe de organização;
 
 ## Saiba mais sobre a R-Ladies
 
@@ -169,7 +167,7 @@ Primeira edição em novembro/2022.
 -   R-Ladies São Paulo:
 
     -   Blog: <https://rladies-sp.org/>
-    -   [<i class="fab fa-linkedin"></i> Linkedin](https://www.linkedin.com/company/r-ladies-sao-paulo/)    
+    -   [<i class="fab fa-linkedin"></i> Linkedin](https://www.linkedin.com/company/r-ladies-sao-paulo/)\
     -   [<i class="fab fa-twitter"></i> Twitter](https://twitter.com/RLadiesSaoPaulo)
     -   [<i class="fab fa-instagram"></i> Instagram](https://instagram.com/RLadiesSaoPaulo)
     -   [<i class="fab fa-facebook"></i> Facebook](https://facebook.com/RLadiesSaoPaulo)
