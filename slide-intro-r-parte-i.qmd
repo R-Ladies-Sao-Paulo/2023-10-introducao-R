@@ -195,4 +195,16 @@ knitr::kable(head(alesp, 10)) %>%
 
 -   E muito mais!
 
+## RStudio
+
+![](img/rstudio1.png)
+
+## RStudio
+
+![](img/rstudio2.png)
+
+## RStudio
+
+![](img/rstudio3.png)
+
 # Vamos começar? {.middle .center}
