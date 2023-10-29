@@ -116,12 +116,12 @@ cand_leg_2022 <- read.csv2("data/consulta_cand_2022_BRASIL.csv",
 # Quantas pessoas sao policiais ou militares?
 # Essa coluna/variavel se chama DESCRICAO_OCUPACAO
 # Vamos usar a funcao DISTINCT para descobrir quais sao as possiveis ocupacoes existentes na base:
-ocupacoes2022 <- cleg2022 %>%
+ocupacoes2022 <- cand_leg_2022 %>%
   distinct(DS_CARGO)
 
 # Vejam que sao 213 ocupacoes diferentes, incluindo "deputado" e "senador".
 # Pra facilitar nossa busca, vamos organizar por ordem alfabetica:
-ocupacoes2022 <- cleg2022 %>%
+ocupacoes2022 <- cand_leg_2022 %>%
   distinct(DS_OCUPACAO) %>%
   arrange(DS_OCUPACAO)
 
